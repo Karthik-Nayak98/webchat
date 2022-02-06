@@ -1,20 +1,20 @@
 import React from "react";
 
-function Message({ text, username, name, index }) {
+function Message({ time, username, payload, index, socketId }) {
   return (
     <div
       key={index}
       className={`flex flex-col rounded-md mb-2 w-52 bg-blue-100 p-2 ${
-        username === name ? "self-end" : ""
+        payload.id === socketId ? "self-end" : ""
       }`}>
-      <div>
+      <div className='flex justify-between'>
         <span className='font-medium text-xs text-pink-500 capitalize'>
-          {name}
+          {payload.name}
         </span>
-        <span>{}</span>
+        <span className='text-sm'>{time}</span>
       </div>
       <span className='text-sm px-1' key={index}>
-        {text}
+        {payload.text}
       </span>
     </div>
   );
