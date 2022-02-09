@@ -1,32 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { SocketContext } from "../../context/socketcontext";
 
 function JoinChat() {
   const [name, setName] = useState("");
+  const [room, setRoom] = useState("javascript");
+
   return (
-    <div className='rounded-lg max-w-md mt-20 p-4 mx-auto w-11/12 shadow-xl border border-gray-200 shadow-slate-200'>
-      <h1 className='uppercase text-center text-blue-400 text-2xl font-bold'>
+    <div className='mx-auto mt-20 w-11/12 max-w-md rounded-lg border border-gray-200 p-4 shadow-xl shadow-slate-200'>
+      <h1 className='text-center text-2xl font-bold uppercase text-blue-400'>
         web Chat
       </h1>
-      <div className='mb-2 flex justify-center items-start flex-col gap-1'>
-        <label className='px-1 text-gray-800'>Username</label>
-        <input
-          className='w-full self-center text-gray-600 outline-none rounded border px-2 py-2 text-left outline-none: focus:border-2 focus:border-blue-300'
-          onChange={e => {
-            setName(e.target.value);
-          }}
-          type='text'
-          value={name}
-          placeholder='Enter Name'
-        />
+      <div className='mb-2 flex flex-col items-start justify-center gap-3'>
+        <div className='w-full'>
+          <label className='px-1 text-gray-800'>Username</label>
+          <input
+            className='w-full self-center rounded  border px-2 py-2 text-left text-gray-600 outline-none focus:border-2 focus:border-blue-300'
+            onChange={e => {
+              setName(e.target.value);
+            }}
+            required
+            type='text'
+            value={name}
+            placeholder='Enter Name'
+          />
+        </div>
+        <div className='w-full'>
+          <label className='px-1 text-gray-800'>Select Room</label>
+          <select
+            onChange={e => setRoom(e.target.value)}
+            value={room}
+            className='focus:border-focus:border-blue-300 w-full rounded border p-2 outline-none'>
+            <option>JavaScript</option>
+            <option>React</option>
+            <option>Python</option>
+            <option>Ruby</option>
+            <option>Perl</option>
+          </select>
+        </div>
       </div>
       <Link
-        onClick={!name ? e => e.preventDefault() : null}
-        to='/chat'
-        state={{ name }}>
+        onClick={name.length === 0 && !room ? e => e.preventDefault() : null}
+        to={`/channel/${room}`}
+        state={{ name, room }}>
         <button
           type='submit'
-          className='w-full bg-blue-500 rounded uppercase tracking-wider text-white font-medium p-2 mt-3'>
+          className='mt-3 w-full rounded bg-blue-500 p-2 font-medium uppercase tracking-wider text-white'>
           Join
         </button>
       </Link>
