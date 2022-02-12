@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
-import { SocketContext } from "../../context/socketcontext";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function JoinChat() {
   const [name, setName] = useState("");
@@ -25,7 +24,7 @@ function JoinChat() {
             placeholder='Enter Name'
           />
         </div>
-        <div className='w-full'>
+        {/* <div className='w-full'>
           <label className='px-1 text-gray-800'>Select Room</label>
           <select
             onChange={e => setRoom(e.target.value)}
@@ -37,11 +36,11 @@ function JoinChat() {
             <option>Ruby</option>
             <option>Perl</option>
           </select>
-        </div>
+        </div> */}
       </div>
       <Link
-        onClick={name.length === 0 && !room ? e => e.preventDefault() : null}
-        to={`/channel/${room}`}
+        onClick={name.length <= 0 ? e => e.preventDefault() : null}
+        to={`/${room}`}
         state={{ name, room }}>
         <button
           type='submit'

@@ -7,7 +7,11 @@ function Message({ time, username, payload, index, socketId }) {
       className={`mb-2 flex w-52 flex-col ${
         payload.id === socketId ? "self-end" : ""
       }`}>
-      <span className='rounded-md bg-blue-200 p-2 text-sm' key={index}>
+      <span
+        className={`rounded-md ${
+          payload.id === socketId ? "bg-green-200" : "bg-blue-300"
+        } p-2 text-sm`}
+        key={index}>
         {payload.text}
       </span>
       <div className='flex justify-between'>
