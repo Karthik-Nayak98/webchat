@@ -1,10 +1,9 @@
 # WebChat
 
-<p align='center'><img width="475" alt="webchat" src="https://user-images.githubusercontent.com/39642646/153722344-f829f2b1-d46a-4c75-90ca-a2ae8e679f36.png
-"></p>
+<p align='center'><img width="475" alt="webchat" src="https://user-images.githubusercontent.com/39642646/153722344-f829f2b1-d46a-4c75-90ca-a2ae8e679f36.png"></p>
 
 <p align='center'>
-<img alt="licence" src="https://img.shields.io/github/license/Karthik-Nayak98/webchat?color=blue"/>
+<img alt="licence" src="https://img.shields.io/github/license/karthik-nayak98/webchat?color=blue"/>
   <img alt='react' src='https://img.shields.io/badge/React-17.0.2+-61DBFB?&logo=react&alt=%22react%16version%22'/>
   <img alt='tailwind' src='https://img.shields.io/badge/NodeJs-16.14.0-43853d?&logo=nodedotjs&alt=%22node%16version%22'/>
   <img alt='last-commit' src='https://img.shields.io/github/last-commit/karthik-nayak98/webchat'/>
@@ -65,4 +64,4 @@ WebChat is instant group chatting application which has some features such as:
 ---
 
 Copyright © 2022 [Karthik Nayak](https://github.com/karthik-nayak98).<br />
-This project is [MIT](https://github.com/Karthik-Nayak98/picstagram/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Karthik-Nayak98/webchat/blob/main/LICENSE) licensed.
