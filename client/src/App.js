@@ -6,7 +6,9 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<JoinChat />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/:room' element={<Chat />} />
+        {/* <Route path='/channel' element={<Chat />}> */}
+        {/* </Route> */}
       </Routes>
     </div>
   );
