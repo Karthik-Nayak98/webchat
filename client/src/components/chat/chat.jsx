@@ -22,12 +22,13 @@ function Chat() {
   const [deleteRoom, setDeleteRoom] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [admin, setAdmin] = useState([]);
+  const ENDPOINT = "https://webchat-live.herokuapp.com/";
 
   const { state } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    socket = io(process.env.REACT_APP_SOCKET_URL);
+    socket = io(ENDPOINT);
     // Connected to socket
     socket.on("connect", () => {
       setId(socket.id);

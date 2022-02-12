@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require("path");
+const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 
@@ -10,7 +10,6 @@ const {
   removeUser,
   getUserInRoom,
   getAdmins,
-  getUsers,
   getRooms,
   createRoom,
   deleteRoom,
@@ -22,14 +21,13 @@ const app = express();
 // creates a server.
 const server = http.createServer(app);
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-
+app.use(cors());
 app.use(router);
 
 // Instantiates a socket server.
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
